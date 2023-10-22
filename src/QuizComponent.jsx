@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import questionsData from './data/questions';
+import {
+  Container,
+  Question,
+  Answer,
+  Button,
+} from './style/QuizComponentStyle';
 
 function QuizComponent() {
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
@@ -35,27 +41,29 @@ function QuizComponent() {
   }
 
   return (
-    <div>
+    <Container>
       {currentQuestionIndex === -1 ? (
-        <button onClick={startQuiz}>시작</button>
+        <Button onClick={startQuiz}>시작</Button>
       ) : (
         <>
-          <h1>{shuffledQuestions[currentQuestionIndex].question}</h1>
+          <Question>
+            {shuffledQuestions[currentQuestionIndex].question}
+          </Question>
           {showAnswer ? (
             <>
-              <p>{shuffledQuestions[currentQuestionIndex].answer}</p>
-              <button onClick={() => setShowAnswer(false)}>숨기기</button>
+              <Answer>{shuffledQuestions[currentQuestionIndex].answer}</Answer>
+              <Button onClick={() => setShowAnswer(false)}>숨기기</Button>
             </>
           ) : (
-            <button onClick={() => setShowAnswer(true)}>답안 보기</button>
+            <Button onClick={() => setShowAnswer(true)}>답안 보기</Button>
           )}
           {currentQuestionIndex < shuffledQuestions.length - 1 ? (
-            <button onClick={nextQuestion}>다음 질문</button>
+            <Button onClick={nextQuestion}>다음 질문</Button>
           ) : null}
-          <button onClick={resetQuiz}>홈으로</button>
+          <Button onClick={resetQuiz}>홈으로</Button>
         </>
       )}
-    </div>
+    </Container>
   );
 }
 
