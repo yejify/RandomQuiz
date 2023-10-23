@@ -47,6 +47,9 @@ function QuizComponent() {
       ) : (
         <>
           <Question>
+            <div>
+              질문 {currentQuestionIndex + 1} / {shuffledQuestions.length}
+            </div>
             {shuffledQuestions[currentQuestionIndex].question}
           </Question>
           {showAnswer ? (
