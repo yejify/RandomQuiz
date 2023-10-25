@@ -43,7 +43,11 @@ function QuizComponent() {
   return (
     <Container>
       {currentQuestionIndex === -1 ? (
-        <Button onClick={startQuiz}>시작</Button>
+        <div className='startPage'>
+          <h1>랜덤 면접질문</h1>
+          {/* <img src=''></img> */}
+          <Button onClick={startQuiz}>시작</Button>
+        </div>
       ) : (
         <>
           <Question>

@@ -5,6 +5,9 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  .startPage {
+    text-align: center;
+  }
 `;
 
 export const Question = styled.h1`
